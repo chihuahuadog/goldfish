@@ -1,0 +1,1336 @@
+<!DOCTYPEhtml>
+<html>
+   <head>
+      <style>
+         *{
+         box-sizing:
+         border-box;
+         }
+         h1{
+         font-family: Ariel;
+         color: black;
+         background-color: aqua;
+         border: 1px solid green;
+         }
+         h2{
+         font-family: Monospace;
+         }
+         h3{
+         color:blue;
+         }
+         h4{
+         color:black;
+         background: white;
+         }
+         body{
+         background-image: url(https://tag-qgv8rvci.netdna-ssl.com/wp-content/uploads/2015/12/Taiwanese-Aquascape-Style-600x300.jpg);
+         font-size: 20px;
+         font-family: 'Work Sans', sans-serif;
+         color: #333;
+         font-weight: 300;
+         text-align: center;
+         background-color: #f8f6f0;
+         }
+         table,td{
+         text-align:center;
+         border:2px solid black;
+         border-collaspe: collaspe;
+         }
+         th{
+         text-align: center;
+         }
+         ul {
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+         overflow: hidden;
+         background-color: #333;
+         }
+         li {
+         float: left;
+         }
+         li a, .dropbtn {
+         display: inline-block;
+         color: white;
+         text-align: center;
+         padding: 14px 16px;
+         text-decoration: none;
+         }
+         li a:hover, .dropdown:hover .dropbtn {
+         background-color: red;
+         }
+         li.dropdown {
+         display:float;
+         }
+         .dropdown-content {
+         display: none;
+         position: absolute;
+         background-color: #f9f9f9;
+         min-width: 160px;
+         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+         z-index: 1;
+         }
+         .dropdown-content a {
+         color: black;
+         padding: 12px 16px;
+         text-decoration: none;
+         display: block;
+         text-align: left;
+         }
+         .dropdown-content a:hover {background-color: #f1f1f1}
+         .dropdown:hover .dropdown-content {
+         display: block;
+         }
+         .header {
+         background-image:url(https://aquariuminfo.org/images/aquascape4.jpg);
+         padding: 20px;
+         text-align: center;
+         }
+         .foot {
+         padding: 20px;
+         text-align: center;
+         background: lavander;
+         margin-top: 20px;
+         }
+         .navbar {
+         overflow: hidden;
+         background-color: #333;
+         position: fixed;
+         top: 0;
+         width: 25%;
+         height:400px;
+         }
+         .navbar a {
+         float: left;
+         display: block;
+         color: #f2f2f2;
+         text-align: center;
+         padding: 14px 16px;
+         text-decoration: none;
+         font-size: 17px;
+         }
+         .navbar a:hover {
+         background: #ddd;
+         color: black;
+         }
+         .question{
+         font-size: 30px;
+         margin-bottom: 10px;
+         font-family: Monospace;
+         }
+         .answers {
+         margin-bottom: 20px;
+         text-align: left;
+         display: inline-block;
+         }
+         .answers label{
+         display: block;
+         margin-bottom: 10px;
+         }
+         button{
+         font-family: sans-serif;
+         font-size: 22px;
+         background-color: midnightblue;
+         color: #fff;
+         border: 0px;
+         border-radius: 3px;
+         padding: 20px;
+         cursor: pointer;
+         margin-bottom: 20px;
+         }
+         button:hover{
+         background-color: lightsteelblue;
+         }
+         .slide{
+         position: absolute;
+         left: 0px;
+         top: 0px;
+         width: 100%;
+         z-index: 1;
+         opacity: 0;
+         transition: opacity 0.5s;
+         }
+         .active-slide{
+         opacity: 1;
+         z-index: 2;
+         }
+         .quiz-container{
+         position: relative;
+         height: 200px;
+         margin-top: 40px;
+         }
+         #begin{
+         background-color: aqua;}
+         #intro{
+         background-color:lavender;
+         }
+         #source{
+         background-color: aquamarine;
+         }
+         #introduction{
+         border: 3px solid indigo;
+         padding: 4px;
+         }
+         #tank{
+         border: 3px solid teal;
+         }
+         #filter{
+         border: 3px solid indigo;
+         }
+         #feeding{
+         border: 3px solid teal;
+         }
+         #diseases{
+         border: 3px solid indigo;
+         }
+         #should{
+         border: 3px solid teal;
+         }
+         #foot{
+         background-color: lavender;
+         }
+         #dog{
+         background-color: lavender;
+         }
+         #quiz{
+         color: black;
+         }
+         #cat{
+         font-weight: 300;
+         margin: 0px;
+         padding: 10px;
+         font-size: 20px;
+         background-image: url(https://www.aquascapeawards.com/content/scapes/2016-03-05/23c8d86d01_dsc_01032.jpg);
+         color: #black;
+         }
+         #container{
+         border: 2px solid black;
+         background-color: mistyrose;
+         }
+         .item1 { grid-area: header; }
+         .item3 { grid-area: main; }
+         .item4 { grid-area: right; }
+         .item5 { grid-area: footer; }
+         .grid-container {
+         display: grid;
+         grid-template-areas:
+         'header header header header header header'
+         'main main main main right right'
+         'footer footer footer footer footer footer';
+         grid-gap: 20px;
+         background-color: #2196F3;
+         padding: 10px;
+         }
+         .grid-container > div {
+         background-color: rgba(255, 255, 255, 0.8);
+         text-align: center;
+         padding: 20px 0;
+         font-size: 30px;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="header">
+         <!--this is the website title-->
+         <h1>Goldfish Obsession</h1>
+         <h4>
+         Code Source: SitePoint.com and w3schools.com</h4.
+      </div>
+      <ul>
+         <!--This creates the dropdown menu under Basic goldfish care-->
+         <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"> Goldfish Care</a>
+            <div class="dropdown-content">
+               <a href="#introduction">Introduction</a>
+               <a href="#tank">Tank size and Maintenance</a>
+               <a href="#filter">Filters and Heaters</a>
+               <a href="#feeding">Feeding</a>
+               <a href="#diseases">Diseases</a>
+               <a href="#should">Should I have a goldfish?</a>
+               <a href="#choosing">Choosing Goldfish</a>
+               <a href="#goldfish">Goldfish types</a>
+               <a href="#source">Extra Sources</a>
+               <a href="#cat">Quiz</a>
+            </div>
+         </li>
+         <li>
+            <!--This links to the other pages of the website-->
+            <a href="GGCostEstimations.html">$ Estimations</a>
+            <a href="GGoldfishPhysics.html">FUN Physics</a>
+            <a href="GGoldfishAnimation.html">Animation</a>
+            <a href="Game.html">Game</a>
+         </li>
+      </ul>
+      <div class="grid-container">
+         <div class="item1">
+            <div id="begin">
+               <h1>
+                  <!--MainSubheading-->
+                  What are goldfish really?
+               </h1>
+            </div>
+            <h2>
+               Although many have had a pet goldfish, most do not know much about them.
+            </h2>
+         </div>
+         <div class="item3">
+            <div id="introduction">
+               <h3>
+                  <!--This is the main box and it takes up the left side of the page-->
+                  Introduction
+               </h3>
+               <p>
+                  Remember coming home with a goldfish one day? How long did
+                  you think it would live? A few days? Months? With proper
+                  care your goldfish could of lived 20-30 years! The oldest
+                  recorded goldfish lived up to 43 years old. So you may be
+                  thinking: what is the secret? Well, it's no secret and had
+                  you done some research first, you would have spared your
+                  poor goldfish some suffering. Don't feel bad, most, if not
+                  all, goldfish keepers have made the same mistake. In the
+                  following sections, I will outline some information about
+                  goldfish for you.
+               </p>
+               <p>
+                  <img src=
+                     "https://img-aws.ehowcdn.com/600x600p/photos.demandstudios.com/getty/article/178/28/87708168.jpg"
+                     width="450" hight="650" />
+               </p>
+            </div>
+            <div id="tank">
+               <h3>
+                  Tank size and Maintenance
+               </h3>
+               <p>
+                  You probably took your goldfish out the bag once you got
+                  home, got some tap water from the sink, and stuffed the
+                  goldfish into a tiny bowl or container that happens to be
+                  nearby. Well, goldfish can grow up to be anywhere from
+                  about 8 inches to 18 inches depending on the breed. You
+                  simply just can't stuff a goldfish into a 8 inch diameter
+                  bowl and hope it will live, it won't. If the goldfish
+                  doesn't die from ammonia and nitrite buildup, it will die
+                  from organs that keep expanding while its body is kept from
+                  growing because of its small environment.<br />
+                  There are main divisions of goldfish:
+                  <strong>Fancy</strong> and <strong>Common</strong>(also
+                  known as Comet or Feeder goldfish.
+               </p>
+               <ol>
+                  <li>Fancy goldfish Fancy goldfish need about 20 gallons for
+                     one goldfish and 10 gallons for each additional fish
+                  </li>
+                  <li>Common goldfish Common goldfish need about 30 gallons
+                     for one goldfish and 12 gallons for each additional fish.
+                  </li>
+               </ol>
+               <p>
+                  Secondly,<em>YOU CANNOT JUST PUT THE GOLDFISH IN TAP
+                  WATER!</em> You must at least have the water sit for a few
+                  days so that chlorine can evaporate or buy a water
+                  dechlorinator. Furthermore, it is best that you cycle the
+                  tank first.Set up the tank as you would if the goldfish was
+                  in it. Then add in some nitrate and ammonia. Test the water
+                  everyday until it shows zero ammonia, zero nitrite, and
+                  some nitrite. This will make sure the beneficial bacteria
+                  in the tank is effective and doing its job. Be sure to make
+                  weekly water changes of about 10% to 50%.
+               </p>
+               <img src=
+                  "https://i.ytimg.com/vi/845J0RAIkV0/maxresdefault.jpg" width=
+                  "450" height="300" />
+            </div>
+            <div id="filter">
+               <h3>
+                  Fiters and Heaters
+               </h3>
+               <p>
+                  First of all, I will start with heaters. Heaters are
+                  optional for goldfish since they are capable of surviving
+                  in cold temperatures and will be perfectly fine as long as
+                  the weather does not cause the water to freeze. Heaters are
+                  beneficial in the way they keep the water temperatures from
+                  fluctuating which causes stress to the goldfish. The main
+                  types of filters avaliableavailable in most pet stores:
+                  power filters, canister filters, internal filters,
+                  undergravel filters, wet/dry filters and sponge filters.
+               </p>
+               <table>
+                  <!--Table for types of filters-->
+                  <tr>
+                     <th>
+                        Types of Filters
+                     </th>
+                  </tr>
+                  <tr>
+                     <td>
+                        Type
+                     </td>
+                     <td>
+                        Best for and maintenance level/Brief overview
+                     </td>
+                     <td>
+                        Function
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        POWER FILTERS<br>
+                        <img src="https://media.takealot.com/covers_tsins/43526329/43526329_10-zoom.jpg?1502458874" width="150" height="150">
+                     </td>
+                     <td>
+                        -beginner<br />
+                        -easy maintenance<br />
+                        -low to medium price$10-$150<br />
+                     </td>
+                     <td>
+                        Power filters aka hang on the back filters or HOB
+                        filters consist of a pump, filter cartridges/media, and
+                        3 types of filtration. Biological filtration-cartridge
+                        used for growing helpful bacteria. Chemical
+                        filtration-activated carbon cartridge. Mechanical-water
+                        passes through foam material.The cartilages need to be
+                        replaced as needed overtime
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        CANISTER FILTERS
+                        <img src="https://www.aquadunia.com/wp-content/uploads/2015/03/fluval-206.jpg" width="150" height="150">
+                     </td>
+                     <td>
+                        -better for larger tanks<br />
+                        -$90-500
+                     </td>
+                     <td>
+                        These filters are best for tanks greater than 40
+                        gallons.These have a siphon tube and flexible pipe work
+                        going to the filter and then a pipe back up and into
+                        the tank with a return �water bar� that spreads the
+                        water outflow through a long bar. The chemical and
+                        mechanical filtration is excellent due to the large
+                        size of the filter and since they are pressurized which
+                        forces the water through fine material that can trap
+                        smaller particles.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        UNDERGRAVEL FILTERS<br>
+                        <img src="https://s7d1.scene7.com/is/image/PETCO/2425707-center-1" width="150" height="150">
+                     </td>
+                     <td>
+                        -keeps gravel clean<br />
+                        -$8-$60
+                     </td>
+                     <td>
+                        These filters are placed under the gravel and they pull
+                        the water through substrate and gravel up uplift tubes.
+                        <em>You must buy an air stone or powerhead in order for
+                        this filter to work!</em>Mechanical filtration is fine,
+                        but chemical filtration and biological filtration are
+                        severely limited due to its design and should be
+                        provided in another way.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        INTERNAL FILTERS<br>
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/31GqvKhNqQL.jpg" width="150" height="150">
+                     </td>
+                     <td>
+                        -great for small and nano aquariums<br />
+                        -$8-$30
+                     </td>
+                     <td>
+                        These are used in aquariums smaller than 20
+                        gallons.They do take up room since they are �internal�
+                        and placed inside the tank.Be careful when reading the
+                        box label; they may require a air pump and airline.
+                        They have suitable chemical, mechanical, and biological
+                        filtration
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        WET/DRY FILTERS<br>
+                        <img src="http://www.bestpetstoreonline.com/productimages/advance_aqua_tanks/display/bio-fil_hangon.jpg" width="150" height="150">
+                     </td>
+                     <td>
+                        -a lot of work to set up<br />
+                        -$50-$300
+                     </td>
+                     <td>
+                        They are excellent in biological filtration since they
+                        are exposed to aquarium water and air which allows
+                        bacteria to grow. Chemical filtration is acceptable,
+                        but mechanical filtration is somewhat limited since the
+                        water passes through large spored sponges. The system
+                        is a lot of work to set up since it includes getting
+                        water pumped directly to your aquarium with a sump or
+                        reservoir to hold auxiliary water and water to run the
+                        pump.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        SPONGE FILTERS<br>
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/51fXwl9UfmL._SY355_.jpg" width="150" height="150">
+                     </td>
+                     <td>
+                        -most basic setup<br />
+                        -$5-$40
+                     </td>
+                     <td>
+                        They are not outstanding in biological, chemical or
+                        mechanical filtration and These are made mostly for
+                        breeding, fry (baby fish) nursery tanks, hospital tanks
+                        and aquariums with small fish or invertebrates.A sponge
+                        filter is powered by an air pump where water is forced
+                        to pull through the sponge-like material. The sponge is
+                        capable of producing biological and mechanical
+                        filtration because beneficial bacteria live on the
+                        sponge.
+                     </td>
+                  </tr>
+               </table>
+            </div>
+            <div id="feeding">
+               <h3>
+                  Feeding
+               </h3>
+               <p>
+                  Goldfish do not need to be fed constantly! They are always
+                  "hungry" and will literally eat until they die if you let
+                  them. Feed them about once or twice a day with as much food
+                  as they can consume in 5 minutes. Goldfish are omnivores
+                  and need a variety of food.Goldfish pellets and flakes are
+                  fine, but be careful and do your research! I advise not
+                  buying goldfish food containing wheat or wheat gluten since
+                  goldfish do not eat grain or chicken. Like us, goldfish
+                  need veggies to balance out their diet. Just about any kind
+                  of fibrous veggie will work. Examples include romaine
+                  lettuce, spinach,fruits, and kale.Remember to clean out the
+                  rotting vegetables afterward! Freeze-dried food is also
+                  good.
+               </p>
+               <img src=
+                  "http://puregoldfish.com/wp-content/uploads/2015/09/gorginggoldfish1.jpg"
+                  width="400" height="300" />
+            </div>
+            <div id="diseases">
+               <h3>
+                  Diseases
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhXieFltIPyCdifbyLdQpMDlXSc0XbYdJhxi3AU3h2zHMN4e9dWg" width="25" height="20">
+               </h3>
+               <p>
+                  There are several types of goldfish diseases and I will
+                  only cover the most common. They are the following: Ich,
+                  Swim bladder disease, Fin rot, Fungal infection, Velvet,
+                  Anchor worm, Dropsy,and Flukes
+               </p>
+               <table>
+                  <!--This is the table for diseases-->
+                  <tr>
+                     <th>
+                        Diseases
+                     </th>
+                     <th>
+                        Symptoms
+                     </th>
+                     <th>
+                        Cause
+                     </th>
+                  </tr>
+                  <tr>
+                     <td>
+                        ICK<br>
+                        <img src="http://thegoldfishtank.com/wp-content/uploads/2013/06/goldfish-white-spot-ich1.jpg" width="150" height="150">
+                     </td>
+                     <td>
+                        -Spots that resemble grains of salt or white sand on
+                        the skin<br><br>-May be slightly raised<br><br>- Scratching against
+                        objects due to irritated skin<br><br>-Clamped fins<br><br>-Gasping
+                        at the water�s surface.
+                     </td>
+                     <td>
+                        -Usually attacks fish that are stressed, which can be
+                        caused by factors including rapid temperature and pH
+                        fluctuations.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        SWIM BLADDER DISEASE<br>
+                        <img src="https://koiorganisationinternational.org/sites/default/files/goldfish%20upside%20down.jpg" width="190" height="150">
+                     </td>
+                     <td>
+                        -Fish have a difficult time staying upright and may
+                        hang in the water.
+                     </td>
+                     <td>
+                        -The main cause of swim bladder is overfeeding, which
+                        leads to constipation. Another cause is gulping air
+                        when they grab food from the surface of the water.
+                        Enlarged organs and infections can also cause swim
+                        bladder disease.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        FIN ROT<br>
+                        <img src="http://thegoldfishtank.com/wp-content/uploads/2013/06/goldfish-fin-rot.jpg" width="150" height="150">
+                     </td>
+                     <td>
+                        -A progressive deterioration of the tail and/or fins.
+                        <br><br>-Fins become frayed or their color may fade
+                     </td>
+                     <td>
+                        -A bacterial infection may cause tail, fin and mouth
+                        rot in susceptible fish�those who are bullied or
+                        injured by fin-nipping tank mates�especially in
+                        aquariums with poor conditions.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        FUNGAL INFECTION<br>
+                        <img src="https://pondaquariumproblemsolver.co.uk/wp-content/uploads/2016/03/Pond_internal_bacteria_2.jpg" width="180" height="150">
+                     </td>
+                     <td>
+                        -Initially, you�ll notice a gray or whitish growth in
+                        and on the skin and/or fins.<br><br>-Untreated fungus
+                        resembles a cottony growth.<br><br>- Eventually, as fungus
+                        continues to eat away at the fish�s body, the fish
+                        will die.
+                     </td>
+                     <td>
+                        -Fish who develop fungus are already in a vulnerable
+                        state, the result of other serious health problems or
+                        attacks, such as parasites, a physical injury or a
+                        bacterial infection.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        VELVET<br>
+                        <img src="http://thegoldfishtank.com/wp-content/uploads/2013/12/fish_velvet-1.png" width="200" height="200">
+                     </td>
+                     <td>
+                        -Velvet looks a lot like ich but velvet shows up as
+                        smaller yellow or gray dusty spots on the fish.
+                     </td>
+                     <td>
+                        -Velvet disease is a common occurrence in aquariums
+                        that undergo poor maintenance conditions.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        DROPSY<br>
+                        <img src="https://www.about-goldfish.com/images/xWater-Bubble-Eye-Dropsy2.jpg.pagespeed.ic.ncJHbGJcRI.jpg" width="180" height="150">
+                     </td>
+                     <td>
+                        -Bloating/ Protruding scales
+                     </td>
+                     <td>
+                        -A bacterial infection of the kidneys, which causes
+                        fluid accumulation or renal failure. It appears to
+                        create problems only in weakened fish. May stem from
+                        untidy aquarium conditions.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        ANCHOR WORM<br>
+                        <img src="http://thegoldfishtank.com/wp-content/uploads/2013/12/fish_bigworm-1.png" width="200" height="200">
+                     </td>
+                     <td>
+                        -Very visible parasite attached to the body of the
+                        fish. <br><br>-It will look like a worm hanging off the side
+                        of the fish and leaves a red sore where it's
+                        attached.<br><br>-Your fish will try to scratch the parasite
+                        off its body.
+                     </td>
+                     <td>
+                        -Introduced through other new fish or weakened immune
+                        system
+                     </td>
+                     </tr
+                  <tr>
+                     <td>
+                        FLUKES<br>
+                        <img src="https://www.tapatalk.com/groups/thegoldfishandaquariumboard/imageproxy.php?url=http://i4.photobucket.com/albums/y125/inghit/Fish%20Stuff/Piggy%20In%20Q/NecropsyGills1.jpg" width="150" height="130">
+                     </td>
+                     <td>
+                        -Infected gills and skin<br><br>- Similar to ick, but telltale
+                        sign is movement and possibly eyespots, something
+                        that is not found in ick<br><br>-Use magnification lens to
+                        observe<br><br>- Once gills are destroyed, fish will die
+                     </td>
+                     <td>
+                        -Undesirable environmental conditions�including poor
+                        water quality, overcrowding and/or stress by
+                        incompatible species�creates conditions that can lead
+                        to destructive outbreaks. Flukes are often present in
+                        aquariums but remain harmless under ideal conditions.
+                        Avoiding stressful conditions is a key to prevention,
+                        but once an outbreak occurs, prompt treatment is
+                        critical.
+                     </td>
+                  </tr>
+               </table>
+            </div>
+            <div id="should">
+               <h3>
+                  Should I have a goldfish
+               </h3>
+               <p>
+                  Goldfish are wonderful pets and although they probably
+                  sound like a handful now, they are actually less
+                  troublesome than some pets. You do not have to take them
+                  on walks, they will not bark, they will not bite and so
+                  forth. During vacations, you may safely leave them at
+                  home for a few weeks without feeding them and most will
+                  be fine upon your return. They are also very relaxing to
+                  watch and graceful swimmers. However, goldfish do need
+                  all the above mentioned and do get sick. Goldfish
+                  maintenance, tanks, and certain types of goldfish are
+                  expensive and will require some amount of money. It is up
+                  to you about whether you are willing to put in the
+                  effort. Of course it is perfectly legal to keep throwing
+                  your goldfish into an unfiltered, unwholesome and tiny
+                  bowl, but just imagine being locked up in your
+                  bathroom/restroom all the time. Pretty miserable, right?
+               </p>
+               <img src=
+                  "https://www.petmd.com/sites/default/files/goldfish-swimmingtoward_285011336_0.jpg"
+                  width="400" height="300" />
+            </div>
+            <div id="choosing">
+               <h3>Choosing a Goldfish</h3>
+               <p>When choosing a goldfish there are certian things you should be aware of in order to find a healthy, active fish.</p>
+               <h4>The following is a good list to keep in mind</h4>
+               <ol>
+                  <li>Is the fish active and looking for food? If a goldfish is not eating, there is something wrong!!!</li>
+                  <li>Are all the fins present, un-frayed at the edges. Clamped fins are a bad sign!</li>
+                  <li>Are there any red patches on the fins or body?  (Hard to see on red or orange colored fish)</li>
+                  <li>Is there any white cotton wool like patches or pinhead size white spots anywhere on the fish?</li>
+                  <li>Is the body full and rounded? (Consider the goldfish type you are purchasing.  A healthy Comet will be a lot slimmer than a sick Fantail, but the body should still be rounded and smooth, not appearing wasted).</li>
+                  <li>Is the Goldfish breathing normally, not fast compared to other fish in the aquarium? NO RED GILLS!</li>
+                  <li>Does the fish�s movement appear effortless or is it labored as if it is struggling to keep buoyant?</li>
+                  <li>Few if any scales should be missing, and they shouldn't be extended like a pine cone (unless the goldfish is a Pearl Scale).</li>
+                  <li>Is the fish twitching or scratching against the gravel or aquarium sides?</li>
+               </ol>
+            </div>
+            <div id="goldfish">
+               <p>
+                  These are some goldfish types. NOTE:Common Single tailed
+                  and fancy goldfish should not be kept together. The
+                  common goldfish swim more faster and are more aggressive.
+                  They will bully the fancy goldfish and eat all the food.
+               </p>
+               <h3>
+                  Goldfish types
+               </h3>
+               <table>
+                  <!--This is the table for goldfish types-->
+                  <tr>
+                     <th>
+                        Goldfish Types
+                     </th>
+                  </tr>
+                  <tr>
+                     <td>
+                        Type
+                     </td>
+                     <td>
+                        Description
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        BLACKMOOR<br>
+                        <img src="https://www.about-goldfish.com/images/250xNxBlack_Moor_Goldfish.jpg.pagespeed.ic.NKxgrA5t2E.jpg" width="150" height="150">
+                     </td>
+                     <td>
+                        The Black Moor Goldfish is one of the more rounded or
+                        egg-shaped fancy goldfish. This rounded shape is
+                        enhanced by large bulbous eyes protruding from the
+                        sides of its head and its long, flowing finnage. Its
+                        metallic scales are a deep, velvety black.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        BUBBLE EYE<br>
+                        <img src="https://www.aquariumfactory.com.au/wp-content/uploads/2017/12/bubble-eye.jpg" width="170" height="150">
+                     </td>
+                     <td>
+                        They have large bubbles at the sides of their eyes
+                        and do not have a dorsal fin.Their bubble sacs
+                        develop at 6 to 9 months and get so big the fish
+                        often has difficulty swimming and seeing.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        CELESTIAL EYE<br>
+                        <img src="https://featuredcreature.com/wp-content/uploads/2012/10/Screen%2Bshot%2B2011-01-30%2Bat%2B1.44.42%2BPM2.png" width="170" height="150">
+                     </td>
+                     <td>
+                        The eerie eyes of the Celestial Eye Goldfish are
+                        mounted on the top sides of its head and constantly
+                        gaze upward. This makes it perhaps one of the most
+                        unusual of all the goldfish varieties and it also
+                        does not have a dorsal fin.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        FANTAIL<br>
+                        <img src="https://i.pinimg.com/originals/23/88/3e/23883e5eb1ff51a5fdd5a932b5209da1.jpg" width="150" height="150">
+                     </td>
+                     <td>
+                        The Fantail Goldfish is one of the more rounded or
+                        egg-shaped fancy goldfish. These fish are bred for
+                        showing. Their main feature, the split tail fin, is
+                        medium in length and slightly forked.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        ORANDA<br>
+                        <img src="https://4.imimg.com/data4/AP/UX/MY-13762482/oranda-goldfish-500x500.jpg" width="150" height="150">
+                     </td>
+                     <td>
+                        The Oranda Goldfish is one of the most popular
+                        goldfish in the world. It is favored for its hood, a
+                        fleshy growth on the top of its head called the wen.
+                        The wen starts to show at about 3 - 4 months, but
+                        only really begins to form at about 1 - 2 years. The
+                        hood is fully developed when the fish gets to be
+                        about 2-2 1/2 years old.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        PEARLSCALE<br>
+                        <img src="https://vignette.wikia.nocookie.net/goldfish/images/c/ca/Pearlscale2.jpg/revision/latest?cb=20150731165718" width="170" height="150">
+                     </td>
+                     <td>
+                        The Pearlscale is one of the more rounded or
+                        egg-shaped fancy goldfish. They have a straight back
+                        with a swollen belly, resembling a golf ball.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        RANCHU<br>
+                        <img src="https://puregoldfish.com/wp-content/uploads/2014/11/ranchu-goldfish.jpg" width="200" height="150">
+                     </td>
+                     <td>
+                        Ranchu Goldfish is one of the more rounded or
+                        egg-shaped fancy goldfish. They lack a dorsal fin and
+                        will develop raspberry head growth.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        RYUKIN<br>
+                        <img src="https://i.pinimg.com/736x/47/8b/da/478bda05b5fd560f4edd9ca85e3befee--ryukin-goldfish-goldfish-bowl.jpg" width="160" height="150">
+                     </td>
+                     <td>
+                        The Ryukin Goldfish are easily differentiated from
+                        the Fantail by their extremely high back, which is
+                        often described as a dorsal hump. The hump starts in
+                        the neck region and gives a more pointed appearance
+                        to the Ryukin's head.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        TELESCOPE<br>
+                        <img src="https://i.pinimg.com/originals/f5/88/f3/f588f3b35060ea38a118aea4946e65fc.jpg" width="160" height="160">
+                     </td>
+                     <td>
+                        The eyes are the most curious characteristic of the
+                        Telescope Goldfish. Their large eyes are set on top
+                        of long telescope or cone-like stalks mounted on the
+                        sides of its head. On some individuals, these stalks
+                        can extend out as far as 3/4 of an inch (19 - 20 cm),
+                        but they don't really start to protrude until these
+                        fish are about 6 months old.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        VEILTAIL<br>
+                        <img src="https://i.pinimg.com/originals/3b/99/d3/3b99d323900a3bd34ae2a6f2cdf33f03.jpg" width="200" height="150">
+                     </td>
+                     <td>
+                        Veiltail Goldfish have a round body and extremely
+                        long, delicate-looking fins. Their double caudal
+                        (tail) fin and anal fins are well separated. Like the
+                        Fantail, their dorsal fin is held erect, but the
+                        Veiltail Goldfish's dorsal fin is quite long and can
+                        grow to over 2 1/4 inches (6 cm).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        COMET<br>
+                        <img src="https://cf.ltkcdn.net/small-pets/images/std/136437-372x323-goldfish.jpg" width="210" height="200">
+                     </td>
+                     <td>
+                        The Comet Goldfish is also called the Comet-tail
+                        Goldfish or Pond Comet. This fish was the first
+                        variety of single-tail goldfish to be developed with
+                        a long caudal (tail) fin.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        COMMON<br>
+                        <img src="http://www.bristol-aquarists.org.uk/goldfish/common/red_common_goldfish_2000-2.jpg" width="150" height="150">
+                     </td>
+                     <td>
+                        The Common Goldfish is a small member of the
+                        Cyprinidae family of carp fish. These are one of the
+                        hardiest of the goldfish varieties. They are known as
+                        a choice beginner fish for new aquarists because they
+                        are one of the easiest fish to keep.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        SHUBUNKIN<br>
+                        <img src="https://s7d2.scene7.com/is/image/PetSmart/4032342?$pdp-placeholder-desktop$" width="200" height="200">
+                     </td>
+                     <td>
+                        The Shubunkin Goldfish are beautiful fish that are
+                        almost always speckled or have a variegated color
+                        pattern. However, what makes the Shubunkin's
+                        appearance unique is not their wild calico
+                        patterning, but their blue color. Blue is a color
+                        that is quite rare in goldfish.
+                     </td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+         <div class="item4">
+            <div class="navbar">
+               <!--This is the right side column. The navbar is fixed-->
+               <a href="#introduction">Introduction</a>
+               <a href="#tank">Tank size and Maintenance</a>
+               <a href="#filter">Filters and Heaters</a>
+               <a href="#feeding">Feeding</a>
+               <a href="#diseases">Diseases</a>
+               <a href="#should"> Should I have Goldfish?</a>
+               <a href="#goldfish">Goldfish types</a>
+               <a href="#choosing">Choosing Goldfish </a>
+               <a href="#source">Extra Sources</a>
+               <a href="#cat">Quiz</a>
+            </div>
+            <img src="goldfish1.jpg">
+            <h1>Goldfish Jokes</h1>
+            <ol>
+               <li><strong>What fish do goldfish see when they need an operation?</strong><br>A sturgeon.<br><img src="stur.jpg" width="150" height="150" /></li>
+               <br><br>
+               <li><strong>Where do goldfish keep their money?</strong><br>In the river bank.<img src="https://www.mint.ca/store/dyn/MEDIA_CustomProductCatalog/149474_rev-570.png" width="150" height="150"></li>
+               <br><br>
+               <li><strong>Why are goldfish easy to weigh?</strong><br>They bring their own scales.<img src="http://media.pixcove.com/F/4/8/Scale-Gauge-Goldfish-Fish-Scales-Structure-Free-Im-8004.jpg" width="200" height="150"></li>
+               <br><br>
+               <li><strong>What is stranger than seeing a cat fish?</strong><br>Seeing a goldfish bowl.<img src="https://thumbs.dreamstime.com/b/three-goldfish-bowl-2157218.jpg" width="300" height="280"></li>
+               <br><br>
+               <li><strong>What do fish use for money?</strong><br>Sand dollars!<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Keyhole_sand_dollar_01.jpg/210px-Keyhole_sand_dollar_01.jpg" width="200" height="200"></li>
+               <br><br>
+               <li><strong>Why don't fish like basketball?</strong><br>Cause they're afraid of the net <img src="https://heylookatthatfish.files.wordpress.com/2016/04/47.jpg?w=656" width="160" height="180"><br></li>
+               <br><br>
+               <li><strong>How did the fish find the World Wide Web? </strong><br>In a Net.<img src="https://thumbs.dreamstime.com/b/catch-goldfish-12396491.jpg" width="200" height="350"></li>
+               <br><br>
+               <li><strong>How do you communicate with a fish?</strong><br>Drop it a line.<img src="https://thumbs.dreamstime.com/b/single-goldfish-facing-empty-hook-9945423.jpg" width="300" height="300"></li>
+               <br><br>
+               <li><strong>Why are fish so smart?</strong><br><br>Because they swim in schools.<img src="https://thumbs.dreamstime.com/b/school-goldfish-9333218.jpg" width="400" height="200"></li>
+               <br><br>
+               <li><strong>Where do fish sleep?</strong><br>In a river bed.<img src="https://ctl.s6img.com/society6/img/DUVARGjBCOFQ0oS37BJGoLJZabQ/w_700/comforters/queen/~artwork,fw_6000,fh_6000,iw_6000,ih_6000/s6-0083/a/32636745_7467197/~~/goldfish-two-koi-fish-comforters.jpg" width="300" height="300"></li>
+               <br><br>
+               <li><strong>What did the fish say when he posted bail?</strong><br>I'm off the hook.<img src="https://thumbs.dreamstime.com/b/group-goldfish-around-empty-hook-9945456.jpg" width="300" height="300"></li>
+               <br><br>
+               <li><strong>What's the most expensive sort of fish?</strong><br>The goldfish.<img src="https://static4.depositphotos.com/1000633/306/i/950/depositphotos_3063806-stock-photo-goldfish-with-money.jpg" width="250" height="290"></li>
+               <br><br>
+               <li><strong>What do you get when you cross an elephant with a fish?
+                  </strong><br>Swimming trunks<img src="http://payload.cargocollective.com/1/2/92618/1418279/prt_220x220_1474292453_2x.jpg" width="200" height="200">
+               </li>
+               <br><br>
+               <li><strong>What's the most musical part of a fish?</strong><br>The scales!<img src="https://www.schule-und-familie.de/assets/images/Warum/_th7_fisch_musik.jpg" width="210" height="200"></li>
+               <br><br>
+               <li><strong>Why are goldfish orange?</strong><br> The water makes them rust!<img src="https://st3.depositphotos.com/1229718/12874/i/950/depositphotos_128745332-stock-photo-rust-background-element.jpg" width="200" height="215"></li>
+               <br><br>
+               <li><strong>Where do fish live?</strong><br>In Finland<img src="https://thumbs.dreamstime.com/b/goldfish-new-house-9415209.jpg" width="250" height="200"></li>
+               <br><br>
+               <li><strong>What do you call a scared fish?</strong><br>Chicken of the sea.<img src="https://www.gourmetsleuth.com/images/default-source/articles/big-white-chicken.jpg?sfvrsn=8" width="200" height="180"></li>
+               <br><br>
+               <li><strong>What day of the week do fish hate?</strong><br>Fryday<img src="https://cdn.flii.by/image/xb721opdtwn.jpg" width="200" height="200"></li>
+               <br><br>
+               <li><strong>How do you make a goldfish old?</strong><br>Take away the g<img src="http://moziru.com/images/tropical-fish-clipart-freshwater-fish-10.jpg" width="200" height="200"></li>
+               <br>
+            </ol>
+            <br>
+            <img src="http://www.thinkfish.co.uk/articleimages/fish-bubbles-joke.jpg" width="250" height="300">
+            <br>
+            <img src="http://2.bp.blogspot.com/_7DtS_zhHXQU/S_mYJ_YzUTI/AAAAAAAAACs/ExZVkbydGOE/s1600/m9aek8%5B1%5D.jpg" width="300" height="300"><br><br>
+            <img src="https://i.pinimg.com/736x/eb/0c/b8/eb0cb86452096638789b0f43cdd5bace--fish-humor-cartoon-jokes.jpg" width="300" height="300">
+            <br>
+            <img src="https://www.toonpool.com/user/43546/files/ned_and_larry_-_how_rude_1603435.jpg" width="300" height="300">
+            <br>
+            <img src="http://www.thinkfish.co.uk/articleimages/jokepage2.jpg" width="300" height="300">
+            <br>
+            <img src="http://www.kappit.com/img/pics/62369460bfeff_sm.jpg" width="300" height="300">
+            <br>
+            <img src="https://s3.amazonaws.com/lowres.cartoonstock.com/animals-fish-bowl-goldfish-eat-eating-shl080603_low.jpg" width="250" height="300">
+            <br>
+            <img src="https://www.coolpun.com/images/coolpun/0f/0f9cc8cc2fba736722488f7d2482ce2f.gif" width="250" height="300">
+            <br>
+            <br>
+            <img src="https://i.pinimg.com/originals/5e/4b/80/5e4b8064b2d39f986760eed4c83d7cfb.jpg" width="290" height="290">
+            <br>
+            <br>
+            <img src="http://1.bp.blogspot.com/_yRVvNsIApzs/TSx62CTOmKI/AAAAAAAAAys/6I0M1JYxFFU/s1600/goldfish%2Bblog.jpg" width="300" height="300">
+            <br>
+            <br>
+            <img src="https://justoutsidetheboxcartoon.files.wordpress.com/2011/10/img_0391.jpg" width="300" height="300">
+            <br>
+            <br>
+            <img src="https://thumbs.gfycat.com/AltruisticEminentAvocet-max-1mb.gif" width="350" height="300">
+            <br>
+            <br>
+            <img src="http://www.gloucestercitynews.net/.a/6a00d8341bf7d953ef0223c8464622200c-320wi" width="350" height="300">
+            <br>
+            <br>
+            <img src="https://media.giphy.com/media/RByKWwqMt6fja/giphy.gif" width="300" height="250">
+            <br>
+            <br>
+            <img src="https://i.pinimg.com/originals/6d/e2/df/6de2df902ce453640ce9de1f3fb24296.gif" width="300" height="300">
+            <br><br>
+            <img src="http://bestanimations.com/Animals/Fish/goldfish/goldfish-swimming-animated-gif-6.gif" width="350" height="300">
+            <br><br>
+            <img src="https://cdn.dribbble.com/users/735993/screenshots/2865508/fish.gif" width="300" height="250">
+            <br><br>
+            <img src="https://zippy.gfycat.com/AdvancedDimpledAddax.gif" width="300" height="300">
+            <br><br>
+            <img src="http://bestanimations.com/Animals/Fish/goldfish/goldfish-swimming-animated-gif-2.gif" width="400" height="250">
+            <br><br>
+            <img src="https://cdn.dribbble.com/users/735993/screenshots/2865508/fish.gif" width="300" height="250">
+            <br><br>
+            <img src="https://zippy.gfycat.com/AdvancedDimpledAddax.gif" width="300" height="300">
+            <br><br>
+            <img src="https://www.2ezwebdesign.com/funsquad/Images/anim%20gifs/Fish/goldfish.lg.B.clr.gif" width="300" height="300">
+            <br>
+            <img src="https://img-fotki.yandex.ru/get/4710/253256692.230/0_161fb6_b6a2384_L" width="350" height="250">
+            <br>
+            <img src="https://lh5.googleusercontent.com/-eZjrAZqxIPk/U2zO4wIhJwI/AAAAAAABJis/o0gAV7mHu2s/w240-h320/29088-golden-fish.gif" width="300" height="400">
+            <br>
+            <br>
+            <img src="https://i.pinimg.com/originals/ab/ca/6c/abca6ce82961fe053e9215ff2c72cff2.gif" width="300" height="500">
+            <br>
+            <br>
+            <img src="https://thumbs.gfycat.com/GrouchyOblongBettong-max-1mb.gif" width="300" height="500">
+            <br>
+            <br>
+            <img src="http://rs534.pbsrc.com/albums/ee342/conniemod/goldfish_m7QUqNmZ_zps8ztlchmv.gif~c200" width="300" height="400">
+            <br>
+            <img src="http://24.media.tumblr.com/ae24d877ad7458a995fd4103884f42a1/tumblr_mv1eegIi7h1qznvrxo1_400.gif" width="300" height="300">
+            <br>
+            <img src="http://www.animacii.com/Animacii/Animicii_12/Jivotni_8/Kotki/3-30kote-s-ribk%E8.gif" width="300" height="400">
+            <br>
+            <img src="https://i.pinimg.com/originals/fd/21/20/fd2120797d7d57c6746aa520e015a0bb.gif" width="350" height="300">
+            <br>
+            <img src="https://78.media.tumblr.com/d77e862b2f37d3cb49fbbc33e3c537c2/tumblr_o30avrTu721sj1kafo1_500.gif" width="300" height="400">
+            <br>
+            <br>
+            <img src="http://rs89.pbsrc.com/albums/k224/nunsonthego/Aquarium2001.gif?w=280&h=210&fit=crop" width="350" height="250">
+            <br>
+            <br>
+            <img src="https://thumbs.gfycat.com/BoringRedCommongonolek-max-1mb.gif" width="300" height="400">
+            <br>
+            <br>
+            <img src="http://rs89.pbsrc.com/albums/k224/nunsonthego/Aquarium2001.gif?w=280&h=210&fit=crop" width="350" height="250">
+            <br>
+            <br>
+            <br>
+            <img src="https://media3.giphy.com/media/l1J9L9Y81emaoNMoU/giphy.gif" width="350" height="250">
+            <br>
+            <br>
+            <img src="https://avatars.mds.yandex.net/get-pdb/197794/f530669b-2248-4486-82f1-034730d1d6df/orig" width="350" height="250">
+            <br>
+            <br>
+            <img src="http://soleildemavie.s.o.pic.centerblog.net/9797f095.gif" width="350" height="250">
+            <br>
+         </div>
+      </div>
+      <div class="item5">
+         <div id="cat">
+            <!--This is the quiz and it takes up the whole width-->
+            <h1>Goldfish Quiz</h1>
+            <div class="quiz-container">
+               <div id="quiz"></div>
+            </div>
+            <button id="previous">Previous Question</button><!--button to move to the previous question-->
+            <button id="next">Next Question</button><!--button to move to the next question-->
+            <button id="submit">Submit Quiz</button><!--button to submit the quiz-->
+            <div id="results">
+               <!--displays results-->
+            </div>
+         </div>
+      </div>
+      <script>
+         (function() {
+         /*use an array to store questions*/const myQuestions = [
+         {
+         question: "How long did the world's longest living goldfish live?",
+         answers: {
+           a: "43 years",
+           b: "45 years",
+           c: "46 years"
+         },
+         correctAnswer: "a"
+         },
+         {
+         question: "About how large can a goldfish grow?",
+         answers: {
+           a: "8-18 inches",
+           b: "3-4 inches",
+           c: "10-15 inches"
+         },
+         correctAnswer: "a"
+         },
+         {
+         question: "How many gallons does one fancy goldfish need?",
+         answers: {
+           a: "5 gallons",
+           b: "30 gallons",
+           c: "20 gallons",
+           d: "25 gallons"
+         },
+         correctAnswer: "c"
+         },
+         {question: "How many gallons does one common goldfish need?",
+         answers: {
+           a: "5 gallons",
+           b: "30 gallons",
+           c: "20 gallons",
+           d: "25 gallons"
+         },
+         correctAnswer: "b"
+         },
+         {question: "What is not a goldfish type?",
+         answers: {
+           a: "Shubunkin",
+           b: "Veiltail",
+           c: "Oranda",
+           d: "Dragonfly"
+         },
+         correctAnswer: "d"
+         },
+         {question: "What goldfish disease is known for small white dots over the goldfish?",
+         answers: {
+           a: "Dropsy",
+           b: "Ick",
+           c: "Ulcers",
+           d: "Anchor Worm"
+         },
+         correctAnswer: "b"
+         },
+         {question: "What should you do to the tank before adding goldfish?",
+         answers: {
+           a: "cycle it",
+           b: "wash well with soap",
+           c: "empty it",
+           d: "wash well with hydrogen perioxide"
+         },
+         correctAnswer: "a"
+         },
+         {question: "Why must I let the water sit for some time before using it?",
+         answers: {
+           a: "The water will have more bacteria",
+           b: "To avoid ammonia",
+           c: "To allow chlorine to evaporate",
+           d: "To avoid high nitrate levels"
+         },
+         correctAnswer: "c"
+         },
+          {question: "What is a GOOD sign when choosing a goldfish?",
+         answers: {
+           a: "clamped fins",
+           b: "eating",
+           c: "missing scales",
+           d: "twitching and scratching"
+         },
+         correctAnswer: "b"
+         },
+         {
+         question: "What is a Goldfish",
+         answers: {
+           a: "carnivore",
+           b: "herbivore",
+           c: "omnivore",
+           d: "decomposer",
+         },
+         correctAnswer: "c"
+         }
+         ];
+
+
+         function buildQuiz() {
+         /*have a place to store output*/
+         const output = [];
+
+         /*for each question*/
+         myQuestions.forEach((currentQuestion, questionNumber) => {
+         /*store list of answer choices*/
+         const answers = [];
+
+         /*store answer*/
+         for (letter in currentQuestion.answers) {
+           /*add html radio button to get answer*/
+           answers.push(
+             `<label>
+                <input type="radio" name="question${questionNumber}" value="${letter}">
+                 ${letter} :
+                 ${currentQuestion.answers[letter]}
+              </label>`
+           );
+         }
+         /*add this question and output to display*/
+         output.push(
+           `<div class="slide">
+              <div class="question"> ${currentQuestion.question} </div>
+              <div class="answers"> ${answers.join("")} </div>
+            </div>`
+         );
+         });
+         /*Combine and put on page*/
+         quizContainer.innerHTML = output.join("");
+         }
+         /*function to display*/
+         function showResults() {
+         /*Gather answers*/
+         const answerContainers = quizContainer.querySelectorAll(".answers");
+         /*Keep track of how many correct*/
+         let numCorrect = 0;
+         /*for each question*/
+          myQuestions.forEach((currentQuestion, questionNumber) => {
+         //find selected answer
+         const answerContainer = answerContainers[questionNumber];
+         const selector = `input[name=question${questionNumber}]:checked`;
+         const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+          if (userAnswer === currentQuestion.correctAnswer) {
+           //if answer is correct, add
+           numCorrect++;
+            //if correct, then green
+         answerContainers[questionNumber].style.color = "lightgreen";
+         }
+           //if blank or incorrect
+          else {
+         //color the question and answer red
+         answerContainers[questionNumber].style.color = "red";
+         }
+         });
+         //show the number correct out of how many
+         resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+         }
+         //function that allows slides to be shown
+         function showSlide(n) {
+         // hide current slide
+         slides[currentSlide].classList.remove("active-slide");
+           //show new slide
+         slides[n].classList.add("active-slide");
+           //update slides
+         currentSlide = n;
+         /*if on first slide, do not display previous button*/
+         if (currentSlide === 0) {
+         previousButton.style.display = "none";
+         } else {
+         previousButton.style.display = "inline-block";
+         }
+         /*if on last slide, do not display next button and display submit buttton*/
+         if (currentSlide === slides.length - 1) {
+         nextButton.style.display = "none";
+         submitButton.style.display = "inline-block";
+         }
+           /*otherwise show next button and do not show submit button*/
+          else {
+         nextButton.style.display = "inline-block";
+         submitButton.style.display = "none";
+         }
+         }
+         //moving to the next slide
+         function showNextSlide() {
+         showSlide(currentSlide + 1);
+         }
+         //moving to previous slide
+         function showPreviousSlide() {
+         showSlide(currentSlide - 1);
+         }
+
+         const quizContainer = document.getElementById("quiz");
+         const resultsContainer = document.getElementById("results");
+         const submitButton = document.getElementById("submit");
+         //display quiz right away
+         buildQuiz();
+         const previousButton = document.getElementById("previous");
+         const nextButton = document.getElementById("next");
+         const slides = document.querySelectorAll(".slide");
+         let currentSlide = 0;
+         showSlide(0);
+         //shows results
+         submitButton.addEventListener("click", showResults);
+          //moves to previous slide
+         previousButton.addEventListener("click", showPreviousSlide);
+           //moves to next slide
+         nextButton.addEventListener("click", showNextSlide);
+         })();
+      </script>
+      <div id="source">
+         <!--This is the sources for the website and it takes up the width-->
+         <h3>
+            Sources
+         </h3>
+         <p>
+            Here are some extra website links that helped me. Thank
+            you for reading!
+         </p>
+         <dt>
+            <dl>
+               <a href="http://completegoldfishcare.com/" target=
+                  "_blank">Complete Goldfish Care.com</a>
+            </dl>
+            <dl>
+               <a href="http://thegoldfishtank.com/" target=
+                  "_blank">The Goldfish Tank</a>
+            </dl>
+            <dl>
+               <a href="https://puregoldfish.com" target="_blank">Pure
+               Goldfish</a>
+            </dl>
+            <dl>
+               <a href=
+                  "https://www.petcoach.co/article/filter-functions-and-types-how-to-choose-the-right-kind-%20of/"
+                  target="_blank">Pet Coach: Filter Functions</a>
+            </dl>
+            <dl>
+               <a href=
+                  "%E2%80%9Chttp://www.tetra-fish.com/learning-center/troubleshooting/fish-illnesses-how-to-spot-them.aspx%E2%80%9D">
+               </a>
+            </dl>
+         </dt>
+      </div>
+      <div id="foot">
+         <!--footer that takes up the whole page-->
+         <h1>Thanks Goldfish Friend!</h1>
+      </div>
+      </div>
+   </body>
+</html>

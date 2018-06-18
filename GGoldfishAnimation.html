@@ -1,0 +1,174 @@
+<!DOCTYPEhtml>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style>
+         canvas {
+         border:1px solid #d3d3d3;
+         background-color: #f1f1f1;
+         }
+         h1{
+         background-color: aqua;
+         }
+         h4{
+         color:black;
+         background-color: white;
+         }
+         button{
+         background: lightsteelblue;
+         padding: 4px;
+         border-radius: 5px;
+         font-size: 13px;
+         outline: black;
+         }
+         .header {
+         padding: 20px;
+         text-align: center;
+         font-size: 20px;
+         }
+         ul {
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+         overflow: hidden;
+         background-color: #333;
+         }
+         li {
+         float: left;
+         }
+         li a, .dropbtn {
+         display: inline-block;
+         color: white;
+         text-align: center;
+         padding: 14px 16px;
+         text-decoration: none;
+         }
+         li a:hover, .dropdown:hover .dropbtn {
+         background-color: red;
+         }
+      </style>
+   </head>
+   <body onload="startGame()">
+      <script>
+         var myGamePiece;
+         var myBackground;
+         var redGamePiece, blueGamePiece;
+
+
+         function startGame() {
+             myGamePiece = new component(150, 100, "goldfish.gif", 10, 90, "image");
+             myBackground = new component(656, 270, "http://www.thisiscolossal.com/wp-content/uploads/2015/10/aquarium-1.jpg", 0, 0, "background");
+              redGamePiece = new component(150, 100, "goldfish.gif",150, 30, "image");
+              myGameArea.start();
+         }
+
+         var myGameArea = {
+             canvas : document.createElement("canvas"),
+             start : function() {
+                 this.canvas.width = 480;
+                 this.canvas.height = 270;
+                 this.context = this.canvas.getContext("2d");
+                 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                 this.frameNo = 0;
+                 this.interval = setInterval(updateGameArea, 20);
+                 },
+             clear : function() {
+                 this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+             },
+             stop : function() {
+                 clearInterval(this.interval);
+             }
+         }
+
+         function component(width, height, color, x, y, type) {
+             this.type = type;
+             if (type == "image" || type == "background") {
+                 this.image = new Image();
+                 this.image.src = color;
+             }
+             this.width = width;
+             this.height = height;
+             this.speedX = 0;
+             this.speedY = 0;
+             this.x = x;
+             this.y = y;
+             this.update = function() {
+                 ctx = myGameArea.context;
+                 if (type == "image" || type == "background") {
+                     ctx.drawImage(this.image,
+                         this.x,
+                         this.y,
+                         this.width, this.height);
+                 if (type == "background") {
+                     ctx.drawImage(this.image,
+                         this.x + this.width,
+                         this.y,
+                         this.width, this.height);
+                 }
+                 } else {
+                     ctx.fillStyle = color;
+                     ctx.fillRect(this.x, this.y, this.width, this.height);
+                 }
+             }
+             this.newPos = function() {
+                 this.x += this.speedX;
+                 this.y += this.speedY;
+                 if (this.type == "background") {
+                     if (this.x == -(this.width)) {
+                         this.x = 0;
+                     }
+                 }
+             }
+         }
+
+         function updateGameArea() {
+             myGameArea.clear();
+             myBackground.speedX = -1;
+             redGamePiece.speedX-=2;
+             myBackground.newPos();
+             myBackground.update();
+             myGamePiece.newPos();
+             myGamePiece.update();
+             redGamePiece.update();
+         }
+
+         function move(dir) {
+             myGamePiece.image.src = "https://media.giphy.com/media/ouMVzMDfypb6E/giphy.gif";
+             if (dir == "up") {myGamePiece.speedY = -1; }
+             if (dir == "down") {myGamePiece.speedY = 1; }
+             if (dir == "left") {myGamePiece.speedX = -1; }
+             if (dir == "right") {myGamePiece.speedX = 1; }
+         }
+
+         function clearmove() {
+             myGamePiece.image.src = "https://media.giphy.com/media/ouMVzMDfypb6E/giphy.gif";
+             myGamePiece.speedX = 0;
+             myGamePiece.speedY = 0;
+         }
+      </script>
+      <div style="text-align:center;width:480px;">
+         <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
+         <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
+         <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
+         <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+      </div>
+      <h2>Just Click and Relax</h2>
+      <h2>Fish are very relaxing.</h2>
+      <div class="header">
+         <!--this is the website title-->
+         <h1>Goldfish Obsession</h1>
+         <h4>
+         Code Source: SitePoint.com and w3schools.com</h4.
+      </div>
+      <ul>
+         <!--This creates the dropdown menu under Basic goldfish care-->
+         <li>
+            <a href="GGoldfishMainWeb.html">Goldfish Care</a>
+            <a href="GGCostEstimations.html">$ Estimations</a>
+            <a href="GGoldfishPhysics.html">FUN Physics</a>
+            <a href="GGoldfishAnimation.html">Animation</a>
+            <a href="Game.html">Game</a>
+         </li>
+      </ul>
+   </body>
+</html>
