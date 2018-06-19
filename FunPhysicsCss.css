@@ -1,0 +1,53 @@
+ h1{
+         background-color: aqua;
+         }
+         h4{
+         color:black;
+         background-color: white;
+         }
+         table, td, th,tr{
+         border: 5px solid blue;
+         border-collaspe: collaspe;
+         }
+         body{
+         background-image: url(https://tag-qgv8rvci.netdna-ssl.com/wp-content/uploads/2015/12/Taiwanese-Aquascape-Style-600x300.jpg);
+         }
+         button{
+         background: lightsteelblue;
+         padding: 4px;
+         border-radius: 5px;
+         font-size: 13px;
+         outline: black;
+         }
+         .grid-container {
+         margin-left:1px;
+         border: 5px solid blue;
+         padding: 30px;
+         background-color: honeydew;
+         }
+         .header {
+         background-image:url(https://aquariuminfo.org/images/aquascape4.jpg);
+         padding: 20px;
+         text-align: center;
+         font-size: 20px;
+         }
+         ul {
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+         overflow: hidden;
+         background-color: #333;
+         }
+         li {
+         float: left;
+         }
+         li a, .dropbtn {
+         display: inline-block;
+         color: white;
+         text-align: center;
+         padding: 14px 16px;
+         text-decoration: none;
+         }
+         li a:hover, .dropdown:hover .dropbtn {
+         background-color: red;
+         }

@@ -3,90 +3,7 @@
       <title>
          Goldfish Obscession: Cost <!--displayed on tab-->Estimations
       </title>
-      <style>
-         h1{
-         background-color: aqua;
-         }
-         h4{
-         color:black;
-         background: white;
-         }
-         body{
-         background-image: url(https://tag-qgv8rvci.netdna-ssl.com/wp-content/uploads/2015/12/Taiwanese-Aquascape-Style-600x300.jpg);
-         }
-         table, td{
-         border: 5px solid blue;
-         background: lightblue;
-         border-collapse: collapse;
-         margin-left: 38%;
-         }
-         th{
-         border: 5px solid darkblue;
-         background: blue;
-         color: white;
-         padding: 5px;
-         }
-         input {
-         background: steelblue;
-         color: white;
-         padding: 10px;
-         border-radius: 10px;
-         border: black;
-         font-size: 15px;
-         }
-         button{
-         background: lightsteelblue;
-         padding: 4px;
-         border-radius: 5px;
-         font-size: 13px;
-         outline: black;
-         }
-         .grid-container {
-         display: grid;
-         grid-template-columns: auto auto auto;
-         background-color: lightblue;
-         padding: 10px;
-         grid-row-gap: 50px;
-         }
-         .grid-item {
-         background-color: rgba(255, 255, 255, 0.8);
-         border: 2px solid blue;
-         padding: 20px;
-         font-size: 30px;
-         text-align: center;
-         justify-content: center;
-         background-color: lavender;
-         }
-         .header {
-         background-image:url(https://aquariuminfo.org/images/aquascape4.jpg);
-         padding: 20px;
-         text-align: center;
-         font-size: 20px;
-         }
-         ul {
-         list-style-type: none;
-         margin: 0;
-         padding: 0;
-         overflow: hidden;
-         background-color: #333;
-         }
-         li {
-         float: left;
-         }
-         li a, .dropbtn {
-         display: inline-block;
-         color: white;
-         text-align: center;
-         padding: 14px 16px;
-         text-decoration: none;
-         }
-         li a:hover, .dropdown:hover .dropbtn {
-         background-color: red;
-         }
-         li.dropdown {
-         display:float;
-         }
-      </style>
+      <link rel="stylesheet" href="CostEstimationsCss.css" type="text/css">
    </head>
    <body>
       <div class="header">
@@ -204,43 +121,7 @@
          </form>
          <button onclick="total()">Get Result</button>
       </div>
-      <script>
-         //function to find tank costs
-         function tank() {
-          var y = Number(document.getElementById("gallons").value);
-           var z = y * 1.5+ " dollars";
-           document.getElementById("tank").value=z;
-         }
-         //function to find fish costs
-         function number() {
-           var x = Number(document.getElementById("fish").value);
-           var r = x * 8 + " dollars";
-           document.getElementById("number").value=r;
-           }
-         //function to find food costs
-         function food() {
-           var a = Number(document.getElementById("weight").value)
-           var h = a*2;
-           document.getElementById("food").value=h;
-         } 
-         //function to find filter costs
-         function filter(){
-           var c =Number(document.getElementById("gallons").value);      
-           var d = c * 1.2 + " dollars";
-           document.getElementById("filter").value=d;
-           }
-         //function to find total costs
-         function total(){
-         var t =Number(document.getElementById("gallons").value);    
-         var f = Number(document.getElementById("fish").value);
-         var k = Number(document.getElementById("weight").value)
-         var p =  t * 1.5;
-         var q =  f * 8;
-         var j =  k * 2;
-         var s =  t * 1.2;
-         var i = p + q + s + k + " dollars";
-           document.getElementById("total").value=i;
-          }
+      <script type="text/javascript" src="CostJavascript.js">
       </script>
    </body>
 </html>
