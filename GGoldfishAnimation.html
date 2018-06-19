@@ -1,4 +1,4 @@
-<!DOCTYPEhtml>
+<!DOCTYPE html>
 <html>
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -50,18 +50,18 @@
    </head>
    <body onload="startGame()">
       <script>
-         var myGamePiece;
+         //my variables
+         var myGoldfish;
          var myBackground;
-         var redGamePiece, blueGamePiece;
-
-
+         var SecondGoldfish;
+         //define goldfish components and background
          function startGame() {
-             myGamePiece = new component(150, 100, "goldfish.gif", 10, 90, "image");
+             myGoldfish = new component(100, 70, "https://media.giphy.com/media/ouMVzMDfypb6E/giphy.gif", 10, 110, "image");
              myBackground = new component(656, 270, "http://www.thisiscolossal.com/wp-content/uploads/2015/10/aquarium-1.jpg", 0, 0, "background");
-              redGamePiece = new component(150, 100, "goldfish.gif",150, 30, "image");
-              myGameArea.start();
+              SecondGoldfish = new component(100, 70, "https://media.giphy.com/media/ouMVzMDfypb6E/giphy.gif",150, 30, "image");
+             myGameArea.start();
          }
-
+         
          var myGameArea = {
              canvas : document.createElement("canvas"),
              start : function() {
@@ -79,7 +79,7 @@
                  clearInterval(this.interval);
              }
          }
-
+         //draw function based on type
          function component(width, height, color, x, y, type) {
              this.type = type;
              if (type == "image" || type == "background") {
@@ -89,19 +89,19 @@
              this.width = width;
              this.height = height;
              this.speedX = 0;
-             this.speedY = 0;
+             this.speedY = 0;    
              this.x = x;
-             this.y = y;
+             this.y = y;    
              this.update = function() {
                  ctx = myGameArea.context;
                  if (type == "image" || type == "background") {
-                     ctx.drawImage(this.image,
-                         this.x,
+                     ctx.drawImage(this.image, 
+                         this.x, 
                          this.y,
                          this.width, this.height);
                  if (type == "background") {
-                     ctx.drawImage(this.image,
-                         this.x + this.width,
+                     ctx.drawImage(this.image, 
+                         this.x + this.width, 
                          this.y,
                          this.width, this.height);
                  }
@@ -109,7 +109,7 @@
                      ctx.fillStyle = color;
                      ctx.fillRect(this.x, this.y, this.width, this.height);
                  }
-             }
+             }//Background keeps looping
              this.newPos = function() {
                  this.x += this.speedX;
                  this.y += this.speedY;
@@ -118,53 +118,50 @@
                          this.x = 0;
                      }
                  }
-             }
+             }    
          }
-
+         //update game area
          function updateGameArea() {
              myGameArea.clear();
              myBackground.speedX = -1;
-             redGamePiece.speedX-=2;
-             myBackground.newPos();
+             myBackground.newPos();    
              myBackground.update();
-             myGamePiece.newPos();
-             myGamePiece.update();
-             redGamePiece.update();
+             myGoldfish.newPos();    
+             myGoldfish.update();
+             SecondGoldfish.update();
          }
-
+         //directions the goldfish moves
          function move(dir) {
-             myGamePiece.image.src = "https://media.giphy.com/media/ouMVzMDfypb6E/giphy.gif";
-             if (dir == "up") {myGamePiece.speedY = -1; }
-             if (dir == "down") {myGamePiece.speedY = 1; }
-             if (dir == "left") {myGamePiece.speedX = -1; }
-             if (dir == "right") {myGamePiece.speedX = 1; }
+             if (dir == "up") {myGoldfish.speedY = -1; }
+             if (dir == "down") {myGoldfish.speedY = 1; }
+             if (dir == "left") {myGoldfish.speedX = -1; }
+             if (dir == "right") {myGoldfish.speedX = 1; }
          }
-
+         //when the mouse is released, goldfish speed becomes 0
          function clearmove() {
-             myGamePiece.image.src = "https://media.giphy.com/media/ouMVzMDfypb6E/giphy.gif";
-             myGamePiece.speedX = 0;
-             myGamePiece.speedY = 0;
+             myGoldfish.speedX = 0; 
+             myGoldfish.speedY = 0; 
          }
       </script>
+      <!--control buttons-->
       <div style="text-align:center;width:480px;">
-         <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
-         <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
-         <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
-         <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+         <button onmousedown="move('up')" onmouseup="clearmove()" ontouchstart="move('up')">UP</button><br><br>
+         <button onmousedown="move('left')" onmouseup="clearmove()" ontouchstart="move('left')">LEFT</button>
+         <button onmousedown="move('right')" onmouseup="clearmove()" ontouchstart="move('right')">RIGHT</button><br><br>
+         <button onmousedown="move('down')" onmouseup="clearmove()" ontouchstart="move('down')">DOWN</button>
       </div>
       <h2>Just Click and Relax</h2>
       <h2>Fish are very relaxing.</h2>
       <div class="header">
          <!--this is the website title-->
          <h1>Goldfish Obsession</h1>
-         <h4>
-         Code Source: SitePoint.com and w3schools.com</h4.
+         <h4>Code Source: SitePoint.com and w3schools.com</h4>
       </div>
       <ul>
          <!--This creates the dropdown menu under Basic goldfish care-->
          <li>
             <a href="GGoldfishMainWeb.html">Goldfish Care</a>
-            <a href="GGCostEstimations.html">$ Estimations</a>
+            <a href="GCostEstimations.html">$ Estimations</a>
             <a href="GGoldfishPhysics.html">FUN Physics</a>
             <a href="GGoldfishAnimation.html">Animation</a>
             <a href="Game.html">Game</a>
