@@ -1,0 +1,127 @@
+<html>
+   <head>
+      <title>
+         Goldfish Obscession: Cost <!--displayed on tab-->Estimations
+      </title>
+      <link rel="stylesheet" href="CostEstimationsCss.css" type="text/css">
+   </head>
+   <body>
+      <div class="header">
+         <!--this is the website title-->
+         <h1>Goldfish Obsession</h1>
+         <h4>
+         Code Source: SitePoint.com and w3schools.com</h4.
+      </div>
+      <ul>
+         <li>
+            <!--This links to the other pages of the website-->
+            <a href="GGoldfishMainWeb.html">Goldfish Care</a>
+            <a href="GGCostEstimations.html">$ Estimations</a>
+            <a href="GGoldfishPhysics.html">FUN Physics</a>
+            <a href="GGoldfishAnimation.html">Animation</a>
+            <a href="Game.html">Game</a>
+         </li>
+      </ul>
+      <div class="grid-item">
+         <!--sets up grid layout-->
+         <h1>
+         Cost Estimations</h1
+      </div>
+      <div class="grid-item">
+         <p>This program calculates an ESTIMATED cost for a goldfish tank with only the bare necessities ( In other words a tank with nothing for decoration.)</p>
+         <div class="grid-item">
+            <!--table for calculations-->
+            <table>
+         </div>
+         <tr>
+         <th>Type</th>
+         <th>Estimated Cost/Unit</th>
+         <tr>
+         <td>Tank</td>
+         <td>$1.5/gallon</td>
+         </tr>
+         <tr>
+         <td>Filter</td>
+         <td>$1.2/gallon</td>
+         </tr>
+         <tr>
+         <td>Food</td>
+         <td>$2/oz</td>
+         </tr>
+         </table>
+      </div>
+      <div class="grid-item">
+         <h2>Number of Fish:</h2>
+         <form>
+            <!--gets number of fish-->
+            <input id="fish" type="number"/>
+         </form>
+         <img src="orange.jpg" width="125" height="100">
+      </div>
+      <div class="grid-item">
+         <h2>Tank Size in Gallons:</h2>
+         <form>
+            <!--gets number of gallons-->
+            <input id="gallons" type="number"/>
+         </form>
+         <img src="https://i5.walmartimages.com/asr/74fc3ad8-0c7d-4931-ae4e-9e2a57abcee9_1.3ef223a579ea88f79d01bcf4edafa0a5.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF" width="300" height="200">
+      </div>
+      <div class="grid-item">
+         <h2>Food weight in oz:</h2>
+         <form>
+            <!--gets food weight-->
+            <input id="weight" type="number"/>
+         </form>
+         <img src="food.jpg" width="200" height="200">
+      </div>
+      <div class="grid-item">
+         <h2>Results:</h2>
+         <h3>Tank cost (estimated):</h3>
+         <form>
+            <!--displays tank cost-->
+            <input id="tank" type="text"/>
+         </form>
+         <button onclick="tank()">Get Result</button>
+      </div>
+      <div class="grid-item">
+         <h3>
+         Fish cost (estimated):
+         <h3>
+         <form>
+            <!--displays fish cost-->
+            <input id="number" type="text"/>
+         </form>
+         <button onclick="number()">Get Result</button>
+      </div>
+      <div class="grid-item">
+         <h3>
+         Food cost (estimated):
+         <h3>
+         <form>
+            <!--displays food cost-->
+            <input id="food" type="text"/>
+         </form>
+         <button onclick="food()">Get Result</button>
+      </div>
+      <div class="grid-item">
+         <h3>
+         Filter cost (estimated):
+         <h3>
+         <!--displays filter cost-->
+         <form>
+            <input id="filter" type="text"/>
+         </form>
+         <button onclick="filter()">Get Result</button>
+      </div>
+      <div class="grid-item">
+         <h2>Total cost (estimated):</h2>
+         <!--displays total cost-->
+         <form>
+            <input id="total" type="text"/>
+         </form>
+         <button onclick="total()">Get Result</button>
+      </div>
+      <script type="text/javascript" src="CostJavascript.js">
+      </script>
+   </body>
+</html>
